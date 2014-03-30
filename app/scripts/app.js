@@ -6,7 +6,7 @@ angular.module('ngApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute'
-  
+    
 ])
   .config(function ($routeProvider) {
     $routeProvider
