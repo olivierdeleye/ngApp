@@ -1,0 +1,4 @@
+ngApp
+=====
+
+angular/eclipse application
