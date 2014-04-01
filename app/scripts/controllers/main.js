@@ -1,15 +1,7 @@
 'use strict';
 
 angular.module('ngApp')
-  .controller('MainCtrl', function($scope) 
-	  {
-	   
-	  $scope.showInfo = function(field){
-		  alert("Geslacht: "+field.geslacht+" Lengte: "+field.lengte+" Haarkleur: "+field.haarkleur);
-	
-	  };
-	  
-	  $scope.test = {tekst:"OK"};
+  .controller('MainCtrl', function($scope) {
 	 
 	   $scope.mijnData=[
 	               {naam: "olivier", leeftijd: 41, info:{geslacht:'MAN', lengte:'1m72', haarkleur:'donkerblond'},percentage:40},
@@ -33,9 +25,10 @@ angular.module('ngApp')
                displayName: 'Kracht',
                field: 'percentage',
                rowHeight: 60,
-               cellTemplate:'<status-bar></status-bar>'
-            	   //'<div class="center tiny"><div  ng-bind={{row.getProperty(col.field)}}+"&#37;"></div>'+
-            	 //'<meter min="0" max="100" value={{row.getProperty(col.field)}} high="80" low="45" optimum="90"></meter>'
+               cellTemplate:'<div class="center tiny"><div  ng-bind={{row.getProperty(col.field)}}+"&#37;"></div>'+
+            	  '<meter class="center" min="0" max="100" value={{row.getProperty(col.field)}} high="80" low="45" optimum="90">'+
+            	  '<div class="meter"><span ng-style="{{row.getProperty(col.field)}}%"></span>'+
+            	  '</div></meter>'
              },
              { displayName: 'Info',
                field:'info',
@@ -51,4 +44,19 @@ angular.module('ngApp')
                
              ]
          };
+         
+         $scope.showInfo = function(field){
+   		  alert("Geslacht: "+field.geslacht+" Lengte: "+field.lengte+" Haarkleur: "+field.haarkleur);
+   	
+   	     };
+   	     
+   	     $scope.getPercentage = function(field){
+   	    	 console.log(field);
+   	    	 return field;
+   	    	 
+   	     }
+   	     
+   	  
+   	     
+   	  
    });
